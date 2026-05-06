@@ -10,7 +10,7 @@
 
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Helvetica', sans-serif;
         }
 
         .hero {
@@ -53,6 +53,15 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
         <span class="navbar-brand fw-bold">HMIT</span>
+
+        <!-- MENU LOGIN -->
+        <div>
+            @auth
+                <a href="/dashboard" class="btn btn-light btn-sm">Dashboard</a>
+            @else
+                <a href="/login" class="btn btn-light btn-sm">Login</a>
+            @endauth
+        </div>
     </div>
 </nav>
 
@@ -61,7 +70,19 @@
     <img src="{{ asset('image/logo.png') }}" width="100" class="mb-3">
     <h1>Himpunan Mahasiswa Informatika</h1>
     <p>Wadah mahasiswa untuk berkembang di dunia teknologi</p>
-    <a href="#" class="btn btn-tech mt-3">Gabung Sekarang</a>
+
+    <!-- Tombol utama -->
+    <a href="/pendaftaran" class="btn btn-tech mt-3">Gabung Sekarang</a>
+
+    <!-- ADMIN ONLY -->
+    @auth
+        @if(auth()->user()->role == 'admin')
+            <br><br>
+            <a href="/lihat-aspirasi" class="btn btn-warning">
+                Lihat Semua Aspirasi
+            </a>
+        @endif
+    @endauth
 </section>
 
 <!-- Tentang -->
@@ -83,23 +104,23 @@
                 <div class="card card-custom p-3">
                     <img src="{{ asset('image/pwti.jpeg') }}" class="img-fluid rounded mb-3">
                     <h5>Kelas PWTI</h5>
-                    <p>Pelatihan coding yang bertujuan membantu mahasiswa memperdalam materi perkuliahan</p>
+                    <p>Pelatihan coding untuk memperdalam materi perkuliahan</p>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card card-custom p-3">
-                    <h5>Guest Lecture</h5>
                     <img src="{{ asset('image/guestlecture.jpeg') }}" class="img-fluid rounded mb-3">
-                    <p>Seminar untuk pengembangan wawasan tentang teknologi informasi di ruang lingkup Mahasiswa</p>
+                    <h5>Guest Lecture</h5>
+                    <p>Seminar teknologi untuk menambah wawasan mahasiswa</p>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card card-custom p-3">
-                    <h5>IT Bootcamp</h5>
                     <img src="{{ asset('image/itbootcamp.jpeg') }}" class="img-fluid rounded mb-3">
-                    <p>Lomba untuk Siswa/i SMA/SMK sederajat tentang pembuatan Website</p>
+                    <h5>IT Bootcamp</h5>
+                    <p>Pelatihan intensif dan lomba pembuatan website</p>
                 </div>
             </div>
         </div>
