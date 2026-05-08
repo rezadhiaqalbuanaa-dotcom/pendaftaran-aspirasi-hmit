@@ -67,7 +67,6 @@
 
 <!-- Hero -->
 <section class="hero text-center">
-    <img src="{{ asset('image/logo.png') }}" width="100" class="mb-3">
     <h1>Himpunan Mahasiswa Informatika</h1>
     <p>Wadah mahasiswa untuk berkembang di dunia teknologi</p>
 
