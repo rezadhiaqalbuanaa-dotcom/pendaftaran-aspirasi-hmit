@@ -50,6 +50,11 @@
             <textarea name="alasan" class="form-control" required></textarea>
         </div>
 
+        <div class="mb-3">
+             <label>Password</label>
+             <input type="password" name="password" class="form-control" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">Daftar</button>
         <a href="/" class="btn btn-secondary">Kembali</a>
     </form>

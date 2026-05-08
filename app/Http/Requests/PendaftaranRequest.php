@@ -16,8 +16,9 @@ class PendaftaranRequest extends FormRequest
         return [
             'nama' => 'required|string|max:100',
             'nim' => 'required|numeric',
-            'email' => 'required|email',
-            'alasan' => 'required|string'
+            'email' => 'required|email|unique:users,email',
+            'alasan' => 'required|string',
+            'password' => 'required|min:8',
         ];
     }
 
@@ -27,7 +28,9 @@ class PendaftaranRequest extends FormRequest
             'nama.required' => 'Nama wajib diisi',
             'nim.required' => 'NIM wajib diisi',
             'email.required' => 'Email wajib diisi',
+            'email.unique' => 'Email sudah digunakan',
             'alasan.required' => 'Alasan wajib diisi',
+            'password.required' => 'Password wajib diisi',
         ];
     }
 }
